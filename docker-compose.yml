@@ -1,0 +1,29 @@
+version: '3.1'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      - wextransactions
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/${POSTGRES_DB}
+      - SPRING_DATASOURCE_USERNAME=${POSTGRES_USER}
+      - SPRING_DATASOURCE_PASSWORD=${POSTGRES_PASS}
+  db:
+    image: 'postgres:16-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASS}
+      - POSTGRES_DB=${POSTGRES_DB}
+    networks:
+      - wextransactions
+    expose:
+      - 5432
+networks:
+  wextransactions:
