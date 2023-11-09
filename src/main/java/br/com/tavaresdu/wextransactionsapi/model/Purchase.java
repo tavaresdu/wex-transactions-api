@@ -1,10 +1,17 @@
 package br.com.tavaresdu.wextransactionsapi.model;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Entity
+@Table
 public class Purchase {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(length = 50)
     private String description;
     private LocalDate transactionDate;
     private BigDecimal amount;
@@ -13,6 +20,9 @@ public class Purchase {
         this.description = description;
         this.transactionDate = transactionDate;
         this.amount = amount;
+    }
+
+    public Purchase() {
     }
 
     public Long getId() {
