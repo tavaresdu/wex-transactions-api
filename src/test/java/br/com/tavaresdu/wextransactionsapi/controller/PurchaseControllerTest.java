@@ -35,9 +35,9 @@ class PurchaseControllerTest {
     @MockBean
     private PurchaseService service;
 
-    private MockMvc mockMvc;
+    private final MockMvc mockMvc;
 
-    private ObjectMapper mapper;
+    private final ObjectMapper mapper;
 
     private PurchaseInput input;
 
