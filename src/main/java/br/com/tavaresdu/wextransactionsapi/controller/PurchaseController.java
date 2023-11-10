@@ -3,6 +3,7 @@ package br.com.tavaresdu.wextransactionsapi.controller;
 import br.com.tavaresdu.wextransactionsapi.model.Purchase;
 import br.com.tavaresdu.wextransactionsapi.model.PurchaseInput;
 import br.com.tavaresdu.wextransactionsapi.service.PurchaseService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,11 +23,11 @@ public class PurchaseController {
     }
 
     @PostMapping
-    public ResponseEntity<Purchase> savePurchaseTransaction(@RequestBody PurchaseInput purchaseInput) {
+    public ResponseEntity<Purchase> savePurchaseTransaction(@Valid @RequestBody PurchaseInput purchaseInput) {
         Purchase purchase = service.savePurchase(purchaseInput);
-        if (purchase == null) {
+        if (purchase == null || purchase.getId() == null) {
             return ResponseEntity.internalServerError().build();
         }
-        return ResponseEntity.ok().location(URI.create("/purchases/"+purchase.getId())).body(purchase);
+        return ResponseEntity.created(URI.create("/purchases/"+purchase.getId())).body(purchase);
     }
 }

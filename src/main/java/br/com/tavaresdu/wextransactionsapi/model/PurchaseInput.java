@@ -18,6 +18,15 @@ public class PurchaseInput {
     @Min(0)
     private BigDecimal amount;
 
+    public PurchaseInput() {
+    }
+
+    public PurchaseInput(String description, LocalDate transactionDate, BigDecimal amount) {
+        this.description = description;
+        this.transactionDate = transactionDate;
+        this.amount = amount;
+    }
+
     public String getDescription() {
         return description;
     }
