@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 For running this project locally, you should install and run the Docker Engine.
 
 ```
-Docker - https://www.docker.com/get-started/
+Docker - (https://www.docker.com/get-started/)
 ```
 
 ### Building and Running
@@ -63,9 +63,10 @@ To run the automated tests, you may use the Gradle Wrapper.
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/) - The web framework used
+* [Gradle](https://docs.gradle.org/current/userguide/userguide.html) - Dependency Management
+* [PostgreSQL](https://www.postgresql.org/docs/) - Relational Database
+* [Docker](https://docs.docker.com/) - Containerization Tool
 
 ## Authors
 
